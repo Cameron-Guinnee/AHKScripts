@@ -6,6 +6,14 @@ bIsEnabled := False
 
 ScrollLock:: {
   Global bIsEnabled
+  If (bIsEnabled == True)
+  {
+    SoundBeep(1500)
+  }
+  Else 
+  {
+    SoundBeep(1000)
+  }
   bIsEnabled := !bIsEnabled 
 }
 
