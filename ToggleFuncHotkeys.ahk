@@ -1,18 +1,19 @@
 #NoEnv ; Avoids checking empty variables to see if they're environmental variables 
 #SingleInstance Force ; Ensures that there'll never be more than instance of this macro running at once
 SetScrollLockState, AlwaysOff ; Disables the original functionality of the ScrollLock key
-bIsEnabled := False 
 
+bIsEnabled := False  
 
 ScrollLock:: {
   Global bIsEnabled
+
   If (bIsEnabled == True)
   {
-    SoundBeep(1500)
+    SoundBeep(1000) ; Play a lower pitch tone to convey that the functionality will be disabled
   }
   Else 
   {
-    SoundBeep(1000)
+    SoundBeep(1500) ; Play a higher pitch tone to convey that the functionality will be enabled
   }
   bIsEnabled := !bIsEnabled 
 }
