@@ -2,6 +2,9 @@
 #SingleInstance Force
 SetScrollLockState, AlwaysOff
 
+ScrollLock & F1:: {
+}
+
 F1::F13
 F2::F14
 F3::F15
