@@ -1,3 +1,14 @@
+/*
+    This is an AutoHotkey that, in essence, grants access to 12 extra keys to which macros can be assigned. 
+  It isn't a well-known fact, but there are actually 24 function keys on a keyboard; it's just that F13-F24 lack..
+  phyiscal keys 
+  
+
+This is an AutoHotkey script that swaps function keys F1-F12 with F13-F24 
+
+
+*/
+
 #NoEnv ; Avoids checking empty variables to see if they're environmental variables 
 #SingleInstance Force ; Ensures that there'll never be more than instance of this macro running at once
 SetScrollLockState, AlwaysOff ; Disables the original functionality of the ScrollLock key
