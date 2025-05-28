@@ -16,11 +16,11 @@ ScrollLock:: {
 
   If (bIsEnabled == True)
   {
-    SoundBeep(1000) ; Play a lower pitch tone to convey that the functionality will be disabled
+    SoundBeep 1000 ; Play a lower pitch tone to convey that the functionality will be disabled
   }
   Else 
   {
-    SoundBeep(1500) ; Play a higher pitch tone to convey that the functionality will be enabled
+    SoundBeep 1500 ; Play a higher pitch tone to convey that the functionality will be enabled
   }
   bIsEnabled := !bIsEnabled 
 }
@@ -120,7 +120,7 @@ F12:: {
 
 ; This'll test if we're actually able to access F13 in this way
 F13:: {
-  SoundBeep(3000)
+  SoundBeep 3000
 }
 
 /*
