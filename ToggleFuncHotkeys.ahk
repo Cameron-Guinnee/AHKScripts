@@ -118,6 +118,11 @@ F12:: {
   }
 }
 
+; This'll test if we're actually able to access F13 in this way
+F13:: {
+  SoundBeep(3000)
+}
+
 /*
 #HotIf  GetKeyState("ScrollLock", "P")
 {
