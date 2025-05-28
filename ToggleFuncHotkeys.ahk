@@ -6,7 +6,7 @@
 
 */
 
-#NoEnv ; Avoids checking empty variables to see if they're environmental variables 
+;#NoEnv ; Avoids checking empty variables to see if they're environmental variables 
 #SingleInstance Force ; Ensures that there'll never be more than instance of this macro running at once
 SetScrollLockState, AlwaysOff ; Disables the original functionality of the ScrollLock key
 bIsEnabled := False  
