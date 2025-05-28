@@ -46,7 +46,7 @@ If (bIsEnabled == True)
 {
     Send {F15}
 }
-
+return
 
 F4:: 
 Global bIsEnabled
