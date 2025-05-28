@@ -65,7 +65,7 @@ Return
 
 
 ; This'll copy text to a variable without modifying the clipboard
-GetText(ByReg MyText := "")
+GetText(ByRef MyText := "")
 {
   SavedClip := ClipboardAll 
   Clipboard := 
