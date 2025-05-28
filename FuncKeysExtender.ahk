@@ -119,6 +119,8 @@ If (bIsEnabled == True)
 }
 return
 
+/*
 F13::
 Send "F13 was pressed!"
 return
+*/
