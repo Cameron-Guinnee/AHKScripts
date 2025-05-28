@@ -28,7 +28,7 @@ If not ErrorLevel
 }
 return
 
-CCase:: 
+CCase:
 If (A_ThisMenuItemPos == 1)
 {
   StringUpper, TempText, TempText
