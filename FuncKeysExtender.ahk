@@ -30,7 +30,7 @@ F1::
 Global bIsEnabled 
 If (bIsEnabled == True)
 {
-  Send {F13}
+  Send "{F13}"
 }
 return 
   
@@ -38,7 +38,7 @@ F2::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F14}
+  Send "{F14}"
 } 
 return 
 
@@ -46,7 +46,7 @@ F3::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-    Send {F15}
+    Send "{F15}"
 }
 return
 
@@ -54,7 +54,7 @@ F4::
 Global bIsEnabled
 If (bIsEnabled == True) 
 {
-  Send {F16} 
+  Send "{F16}" 
 }
 return
 
@@ -62,7 +62,7 @@ F5::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F17} 
+  Send "{F17}" 
 }
 return
 
@@ -70,7 +70,7 @@ F6::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F18} 
+  Send "{F18}" 
 }
 return
 
@@ -78,7 +78,7 @@ F7::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F19} 
+  Send "{F19}" 
 }
 return
 
@@ -86,7 +86,7 @@ F8::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F20} 
+  Send "{F20}" 
 }
 return
 
@@ -94,27 +94,27 @@ F9::
 Global bIsEnabled 
 If (bIsEnabled == True) 
 {
-  Send {F21} 
+  Send "{F21}" 
 }
 return
 
 F10:: 
 If (bIsEnabled == True) 
 {
-  Send {F22} 
+  Send "{F22}" 
 }
 return
 
 F11:: 
 If (bIsEnabled == True) 
 {
-  Send {F23} 
+  Send "{F23}" 
 }
 return 
 
 F12:: 
 If (bIsEnabled == True) 
 {
-  Send {F24}
+  Send "{F24}"
 }
 return
