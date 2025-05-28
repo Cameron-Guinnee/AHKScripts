@@ -20,6 +20,7 @@ Else
   SoundBeep 1500 ; Play a higher pitch tone to convey that the functionality will be enabled
 }
 bIsEnabled := !bIsEnabled 
+return
 
 F1:: 
 Global bIsEnabled 
