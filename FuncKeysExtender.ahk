@@ -13,6 +13,24 @@
 SetScrollLockState, AlwaysOff ; Disables the original functionality of the ScrollLock key
 bIsEnabled := False  
 
+/*
+ActivationKey := IniRead("settings.ini", "function_keys_extender", "sActivationKey")
+Hotkey ActivationKey, ToggleExtraFuncKeys
+
+ToggleExtraFuncKeys:
+Global bIsEnabled 
+If (bIsEnabled == True) 
+{
+  SoundBeep 1000 ; Play a lower pitch tone to convey that the functionality will be disabled
+}
+Else 
+{
+  SoundBeep 1500 ; Play a higher pitch tone to convey that the functionality will be enabled
+}
+bIsEnabled := !bIsEnabled
+return
+*/
+
 ScrollLock:: 
 Global bIsEnabled
 If (bIsEnabled == True)
