@@ -9,7 +9,7 @@ Loop
   }
   Else If (PathToExecutable != "") 
   {
-    UserProfile := GetEnv("USERPROFILE")
+    UserProfile := EnvGet("USERPROFILE")
     PathToExecutable := UserProfile . PathToExecutable
     Run PathToExecutable
   }
