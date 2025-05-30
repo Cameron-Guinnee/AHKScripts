@@ -2,7 +2,7 @@
 
 Loop 
 {
-  PathToExecutable := IniRead("settings.ini", "startup", "sFilePath" . A_Index, "ERROR") 
+  PathToExecutable := IniRead("settings.ini", "autostart", "sFilePath" . A_Index, "ERROR") 
   If (PathToExecutable == "ERROR")
   {
     ExitApp
