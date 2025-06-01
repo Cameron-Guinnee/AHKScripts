@@ -12,6 +12,7 @@ If !FileExist(AhkScriptsDir) ; 'My AutoHotkey Scripts' folder doesn't exist
 SettingsIni := AhkScriptsDir . "\settings.ini"
 If !FileExist(SettingsIni) ; settings.ini doesn't exist 
 {
+  ; TODO - Look into creating settings.ini from scratch using FileAppend()
   MissingSettingsMsg := MsgBox("The " . SettingsIni . " file doesn't exist!")  
   ExitApp 
 }
