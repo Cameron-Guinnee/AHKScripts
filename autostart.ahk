@@ -5,6 +5,7 @@ UserProfile := EnvGet("USERPROFILE")
 AhkScriptsDir := UserProfile . "\Documents\My AutoHotkey Scripts" 
 If !FileExist(AhkScriptsDir) ; 'My AutoHotkey Scripts' folder doesn't exist 
 {
+  ; TODO - Look into creating the directory here 
   MissingDirMsg := MsgBox("The " . AhkScriptsDir . " folder doesn't exist!")
   ExitApp
 }
