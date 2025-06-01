@@ -5,19 +5,21 @@ UserProfile := EnvGet("USERPROFILE")
 AhkScriptsDir := UserProfile . "\Documents\My AutoHotkey Scripts" 
 If !FileExist(AhkScriptsDir) ; 'My AutoHotkey Scripts' folder doesn't exist 
 {
+  MissingDirMsg := MsgBox("The " . AhkScriptsDir . " folder doesn't exist!")
   ExitApp
 }
 
 SettingsIni := AhkScriptsDir . "\settings.ini"
 If !FileExist(SettingsIni) ; settings.ini doesn't exist 
 {
+  MissingSettingsMsg := MsgBox("The " . SettingsIni . " file does not exist!")  
   ExitApp 
 }
 
 Loop 
 {
   StartupApp := IniRead(SettingsIni, "autostart", "sFilePath" . A_Index, "INVALID")
-  If (StartupApp == "INVALID") ; key-value pair isn't in the format of "sFilePath <int>" 
+  If (StartupApp == "INVALID") ; key-value pair doesn't exist
   {
     ExitApp 
   }
