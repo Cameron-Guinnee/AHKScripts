@@ -1,19 +1,29 @@
+UserProfile := EnvGet("USERPROFILE")
 /* 
   This AutoHotkey script is meant to be placed in the startup folder on Windows; it'll let the user have AutoHotkey scripts run at startup without having to copy/paste each script into the startup folder.
 */
-; TODO - Verify the path to settings.ini, throwing an error message if it is invalid.
-PathToSettingsIni := EnvGet("USERPROFILE") . "\Documents\My AutoHotkey Scripts\settings.ini"
+AhkScriptsDir := UserProfile . "\Documents\My AutoHotkey Scripts" 
+If !FileExist(AhkScriptsDir) ; 'My AutoHotkey Scripts' folder doesn't exist 
+{
+  ExitApp
+}
+
+SettingsIni := AhkScriptsDir . "\settings.ini"
+If !FileExist(SettingsIni) ; settings.ini doesn't exist 
+{
+  ExitApp 
+}
 
 Loop 
 {
-  PathToExecutable := IniRead(PathToSettingsIni, "autostart", "sFilePath" . A_Index, "ERROR") 
-  If (PathToExecutable == "ERROR")
+  StartupApp := IniRead(SettingsIni, "autostart", "sFilePath" . A_Index, "INVALID")
+  If (StartupApp == "INVALID") ; key-value pair isn't in the format of "sFilePath <int>" 
   {
-    ExitApp
+    ExitApp 
   }
-  Else If (PathToExecutable != "") 
+  Else If (StartupApp != "" && FileExist(UserProfile . StartupApp)) ; The key-value pair is a valid path that leads to an existing file 
   {
-    PathToExecutable := EnvGet("USERPROFILE") . PathToExecutable
-    Run PathToExecutable
+    StartupApp := UserProfile . StartupApp 
+    Run StartupApp
   }
 }
