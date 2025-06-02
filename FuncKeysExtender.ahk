@@ -50,6 +50,10 @@ If (bIsEnabled == True)
 {
   Send {F13}
 }
+Else 
+{
+  Send {F1}
+}
 return 
   
 F2::
@@ -58,6 +62,10 @@ If (bIsEnabled == True)
 {
   Send {F14}
 } 
+Else 
+{
+  Send {F2}
+}
 return 
 
 F3:: 
@@ -65,6 +73,10 @@ Global bIsEnabled
 If (bIsEnabled == True) 
 {
     Send {F15}
+}
+Else 
+{
+  Send {F3}
 }
 return
 
@@ -74,6 +86,10 @@ If (bIsEnabled == True)
 {
   Send {F16} 
 }
+Else 
+{
+  Send {F4}
+}
 return
 
 F5:: 
@@ -81,6 +97,10 @@ Global bIsEnabled
 If (bIsEnabled == True) 
 {
   Send {F17} 
+}
+Else 
+{
+  Send {F5}
 }
 return
 
@@ -90,6 +110,10 @@ If (bIsEnabled == True)
 {
   Send {F18} 
 }
+Else 
+{
+  Send {F6}
+}
 return
 
 F7:: 
@@ -97,6 +121,10 @@ Global bIsEnabled
 If (bIsEnabled == True) 
 {
   Send {F19} 
+}
+Else 
+{
+  Send {F7}
 }
 return
 
@@ -106,6 +134,10 @@ If (bIsEnabled == True)
 {
   Send {F20} 
 }
+Else 
+{
+  Send {F8}
+}
 return
 
 F9::  
@@ -114,12 +146,20 @@ If (bIsEnabled == True)
 {
   Send {F21} 
 }
+Else 
+{
+  Send {F9}
+}
 return
 
 F10:: 
 If (bIsEnabled == True) 
 {
   Send {F22} 
+}
+Else 
+{
+  Send {F10}
 }
 return
 
@@ -128,12 +168,20 @@ If (bIsEnabled == True)
 {
   Send {F23} 
 }
+Else 
+{
+  Send {F11}
+}
 return 
 
 F12:: 
 If (bIsEnabled == True) 
 {
   Send {F24}
+}
+Else 
+{
+  Send {F12}
 }
 return
 
