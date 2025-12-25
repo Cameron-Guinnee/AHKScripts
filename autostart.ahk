@@ -1,33 +1,56 @@
-UserProfile := EnvGet("USERPROFILE")
-/* 
-  This AutoHotkey script is meant to be placed in the startup folder on Windows; it'll let the user have AutoHotkey scripts run at startup without having to copy/paste each script into the startup folder.
-*/
-AhkScriptsDir := UserProfile . "\Documents\My AutoHotkey Scripts" 
-If !FileExist(AhkScriptsDir) ; 'My AutoHotkey Scripts' folder doesn't exist 
-{
-  ; TODO - Look into creating the directory here 
-  MissingDirMsg := MsgBox("The " . AhkScriptsDir . " folder doesn't exist!")
-  ExitApp
+; AutoStart.ahk
+; AutoHotkey v2.0 
+; This is a lightweight AutoHotkey script that will launch every AutoHotkey script the user defines in the autostart section of "Documents/My Autohotkey Scripts/settings.ini" 
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+
+; Base paths
+userProfile := EnvGet("USERPROFILE")
+scriptsDir  := userProfile "\Documents\My AutoHotkey Scripts"
+settingsIni := scriptsDir "\settings.ini"
+
+; Ensure scripts directory exists
+if !DirExist(scriptsDir) {
+    DirCreate scriptsDir
+    MsgBox "Created folder:`n" scriptsDir "`n" 
+        . "Add your scripts there and edit settings.ini."
 }
 
-SettingsIni := AhkScriptsDir . "\settings.ini"
-If !FileExist(SettingsIni) ; settings.ini doesn't exist 
-{
-  ; TODO - Look into creating settings.ini from scratch using FileAppend()
-  MissingSettingsMsg := MsgBox("The " . SettingsIni . " file doesn't exist!")  
-  ExitApp 
+; Ensure settings.ini exists
+if !FileExist(settingsIni) {
+    defaultIni :=
+    (
+    [autostart]
+    ; Paths can be absolute (e.g. C:\path\to\script.ahk)
+    ; or relative to %USERPROFILE% (e.g. \Documents\My AutoHotkey Scripts\script.ahk)
+    sFilePath1=\Documents\My AutoHotkey Scripts\example.ahk
+    )
+    FileAppend defaultIni, settingsIni, "UTF-8"
+    MsgBox "Created default settings.ini:`n" settingsIni
 }
 
-Loop 
-{
-  StartupApp := IniRead(SettingsIni, "autostart", "sFilePath" . A_Index, "INVALID")
-  If (StartupApp == "INVALID") ; key-value pair doesn't exist
-  {
-    ExitApp 
-  }
-  Else If (StartupApp != "" && FileExist(UserProfile . StartupApp)) ; The key-value pair is a valid path that leads to an existing file 
-  {
-    StartupApp := UserProfile . StartupApp 
-    Run StartupApp
-  }
+; Loop through sFilePath1, sFilePath2, ...
+index := 1
+while true {
+    keyName    := "sFilePath" index
+    startupApp := IniRead(settingsIni, "autostart", keyName, "INVALID")
+
+    if (startupApp = "INVALID")
+        break  ; no more entries
+
+    if (startupApp = "") {
+        index++
+        continue
+    }
+
+    ; If the path doesn't contain a drive letter, treat it as relative to %USERPROFILE%
+    fullPath := InStr(startupApp, ":") ? startupApp : userProfile startupApp
+
+    if FileExist(fullPath) {
+        try Run fullPath
+    } else {
+        MsgBox "Configured path not found:`n" fullPath
+    }
+
+    index++
 }
